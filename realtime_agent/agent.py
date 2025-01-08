@@ -98,7 +98,7 @@ class RealtimeKitAgent:
                             output_audio_format="pcm16",
                             instructions=inference_config.system_message,
                             voice=inference_config.voice,
-                            model=os.environ.get("OPENAI_MODEL", "gpt-4o-realtime-preview"),
+                            model=os.environ.get("OPENAI_MODEL", "gpt-4o-mini-realtime-preview-2024-12-17"),
                             modalities=["text", "audio"],
                             temperature=0.8,
                             max_response_output_tokens="inf",
@@ -236,6 +236,8 @@ class RealtimeKitAgent:
 
                 # Process sending audio (to RTC)
                 await self.channel.push_audio_frame(frame)
+                logger.info("Pushed audio frame to Agora")
+
 
                 # Write PCM data if enabled
                 await pcm_writer.write(frame)

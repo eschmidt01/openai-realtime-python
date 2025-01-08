@@ -13,7 +13,7 @@ from ..logger import setup_logger
 logger = setup_logger(name=__name__, log_level=logging.INFO)
 
 
-DEFAULT_VIRTUAL_MODEL = "gpt-4o-realtime-preview"
+DEFAULT_VIRTUAL_MODEL = "gpt-4o-mini-realtime-preview-2024-12-17"
 
 def smart_str(s: str, max_field_len: int = 128) -> str:
     """parse string as json, truncate data field to 128 characters, reserialize"""

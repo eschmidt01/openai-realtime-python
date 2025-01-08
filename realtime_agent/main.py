@@ -34,7 +34,7 @@ class StartAgentRequestBody(BaseModel):
     uid: int = Field(..., description="The UID of the user")
     language: str = Field("en", description="The language of the agent")
     system_instruction: str = Field("", description="The system instruction for the agent")
-    voice: str = Field("alloy", description="The voice of the agent")
+    voice: str = Field("", description="The voice of the agent")
 
 
 class StopAgentRequestBody(BaseModel):
@@ -262,6 +262,7 @@ if __name__ == "__main__":
         # Start the application using asyncio.run for the new event loop
         app = loop.run_until_complete(init_app())
         web.run_app(app, port=int(os.getenv("SERVER_PORT") or "8080"))
+        # web.run_app(app, host="0.0.0.0", port=int(os.getenv("SERVER_PORT") or "8080"))
     elif args.action == "agent":
         # Parse RealtimeKitOptions for running the agent
         realtime_kit_options = parse_args_realtimekit()
