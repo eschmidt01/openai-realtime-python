@@ -26,4 +26,5 @@ COPY realtime_agent realtime_agent
 EXPOSE 8080
 
 # Default command to run the app
-CMD ["python3", "-m", "realtime_agent.main", "server"]
+# CMD ["python3", "-m", "realtime_agent.main", "server"]
+CMD ["python3", "-m", "main", "server"]
